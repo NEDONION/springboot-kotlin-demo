@@ -10,6 +10,7 @@ class Article (
     @GeneratedValue
     var id: Long? = null,
     var title: String,
+    var content: String,
     var headline: String,
     @ManyToOne var author: User,
     var slug: String = title.toSlug(),
