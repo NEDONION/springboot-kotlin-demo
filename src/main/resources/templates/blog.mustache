@@ -1,0 +1,82 @@
+{{> header}}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #2F4858, #33658A);
+        color: white;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        padding: 20px 0;
+    }
+    .articles, .banner-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        background: #B8D8D8;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    }
+    .article-header {
+        background-color: #33658A;
+        padding: 10px;
+        border-radius: 5px 5px 0 0;
+    }
+    .banner {
+        background-color: orangered;
+        padding: 10px;
+        border-radius: 5px 5px 0 0;
+    }
+    .banner-title, .article-title {
+        color: white;
+        font-size: 1.2em;
+        margin: 0;
+    }
+    .banner-content, .article-headline {
+        padding: 10px;
+        border-radius: 0 0 5px 5px;
+        color: #2F4858;
+    }
+    .article-title a {
+        color: white;
+        text-decoration: none;
+    }
+    .article-meta {
+        font-size: 0.8em;
+        color: #B8D8D8;
+    }
+</style>
+
+<h1>{{title}}</h1>
+
+<div class="banner-section">
+    {{#banner.title}}
+        <section>
+            <header class="banner">
+                <h2 class="banner-title">{{banner.title}}</h2>
+            </header>
+            <div class="banner-content">
+                {{banner.content}}
+            </div>
+        </section>
+    {{/banner.title}}
+</div>
+<p></p>
+<div class="articles">
+    {{#articles}}
+        <section>
+            <header class="article-header">
+                <h2 class="article-title"><a href="/article/{{slug}}">{{title}}</a></h2>
+                <div class="article-meta">By <strong>{{author.firstname}}</strong>, on <strong>{{addedAt}}</strong></div>
+            </header>
+            <div class="article-headline">
+                {{headline}}
+            </div>
+        </section>
+    {{/articles}}
+</div>
+
+{{> footer}}

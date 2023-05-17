@@ -1,0 +1,50 @@
+{{> header}}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #2F4858, #33658A);
+        color: white;
+    }
+    .article {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #B8D8D8;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    }
+    .article-header {
+        padding: 20px;
+        border-radius: 10px 10px 0 0;
+    }
+    .article-title {
+        font-size: 1.5em;
+        margin: 0;
+        color: #2F4858;
+    }
+    .article-meta {
+        font-size: 0.8em;
+        color: #33658A;
+    }
+    .article-description {
+        padding: 20px;
+        color: #2F4858;
+        border-radius: 0 0 10px 10px;
+    }
+</style>
+
+<section class="article">
+    <header class="article-header">
+        <h1 class="article-title">{{article.title}}</h1>
+        <h2>Slug: {{article.slug}}</h2>
+        <p class="article-meta">By <strong>{{article.author.firstname}}</strong>, on <strong>{{article.addedAt}}</strong></p>
+    </header>
+
+    <div class="article-description">
+        {{article.headline}}
+        <p></p>
+        {{article.content}}
+    </div>
+</section>
+
+{{> footer}}
