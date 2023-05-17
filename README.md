@@ -67,11 +67,15 @@ fun String.toSlug() = lowercase(Locale.getDefault())
 
 ### Implementing the blog engine
 
-We update the "blog" Mustache templates.
+We update the "blog" Mustache templates. 使用 Mustache 构建 UI 页面。
 - `src/main/resources/templates/blog.mustache`
 - `src/main/resources/templates/article.mustache`
 
 We update the `HtmlController` in order to render blog and article pages with the formatted date. `ArticleRepository` and `MarkdownConverter` constructor parameters will be automatically autowired since `HtmlController` has a single constructor (implicit `@Autowired`).
 
-Then, we add data initialization to a new `DemoConfiguration` class.
+Then, we add data initialization to a new `DemoConfiguration` class. 构造数据初始化的配置文件。
 `src/main/kotlin/com/jiacheng/demo/config/DemoConfiguration.kt`
+
+
+## References
+- https://github.com/spring-guides/tut-spring-boot-kotlin
