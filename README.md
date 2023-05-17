@@ -18,7 +18,7 @@
 
 
 ## Documentation
-### Creating a New Project
+### 1. Creating a New Project
 
 Go to File | New | Project, and select Spring Initializr.
 
@@ -30,7 +30,7 @@ Follow the steps of the wizard to use the following parameters:
 - Name: "Blog"
 - Dependencies: "Spring Web Starter", "Mustache", "Spring Data JPA", "H2 Database" and "Spring Boot DevTools"
 
-### Creating your own extensions
+### 2. Creating your own extensions
 
 Instead of using util classes with abstract methods like in Java, it is usual in Kotlin to provide such functionalities via Kotlin extensions. Here we are going to add a format() function to the existing LocalDateTime type in order to generate text with the English date format.
 
@@ -65,7 +65,7 @@ fun String.toSlug() = lowercase(Locale.getDefault())
     .replace("-+".toRegex(), "-")
 ```
 
-### Implementing the blog engine
+### 3. Implementing the blog engine
 
 We update the "blog" Mustache templates. 使用 Mustache 构建 UI 页面。
 - `src/main/resources/templates/blog.mustache`
@@ -76,6 +76,16 @@ We update the `HtmlController` in order to render blog and article pages with th
 Then, we add data initialization to a new `DemoConfiguration` class. 构造数据初始化的配置文件。
 `src/main/kotlin/com/jiacheng/demo/config/DemoConfiguration.kt`
 
+
+### 4. Testing with JUnit 5
+
+For the sake of this example, let’s create an integration test in order to demonstrate various features:
+
+- We use real sentences between backticks instead of camel-case to provide expressive test function names.
+- JUnit 5 allows to inject constructor and method parameters, which is a good fit with Kotlin read-only and non-nullable properties.
+- This code leverages `getForObject` and `getForEntity` Kotlin extensions (you need to import them).
+
+`src/test/kotlin/com/jiacheng/demo/IntegrationTests.kt`
 
 ## References
 - https://github.com/spring-guides/tut-spring-boot-kotlin
