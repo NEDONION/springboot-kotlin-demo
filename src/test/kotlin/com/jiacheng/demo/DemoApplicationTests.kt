@@ -1,10 +1,10 @@
-package com.jiacheng.springbootkotlindemo
+package com.jiacheng.demo
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class SpringbootKotlinDemoApplicationTests {
+class DemoApplicationTests {
 
 	@Test
 	fun contextLoads() {
